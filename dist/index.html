@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    h1, h2, p, button, li { font-family: 'Rubik', sans-serif; }
+  </style>
+</head>
+<body class="bg-zinc-900">
+  <div class="container mx-auto pt-10 px-6">
+    <div id="activity" class="grid md:grid-cols-2 gap-4">
+
+      <!-- Suggestion column -->
+      <div>
+        <h1 class="text-zinc-100 text-3xl font-bold">Activity suggestion</h1>
+        <p class="text-lg text-emerald-300">{{ currentActivity }}</p>
+        <button v-on:click="loadActivity" class="font-medium text-emerald-900 bg-emerald-300 hover:bg-emerald-400 px-4 py-2 rounded mt-6">Get another suggestion</button>
+      </div>
+
+      <!-- History column -->
+      <div>
+        <h2 v-if="history.length > 0" class="font-medium text-zinc-100 text-xl font-bold pt-0 mt-0 sm:mt-2">Previous suggestions</h2>
+        <ul>
+          <li v-for="item in history" class="text-lg text-emerald-300">• {{ item }}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/vue.global.prod.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
